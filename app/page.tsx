@@ -1,69 +1,159 @@
-import Image from "next/image";
+const capabilities = [
+  "Senior web development",
+  "JavaScript & TypeScript",
+  "React & Next.js",
+  "Tailwind CSS",
+  "MongoDB",
+  "SQL & document data modeling",
+];
+
+const certifications = [
+  "MongoDB Aggregation Fundamentals",
+  "From Relational Model (SQL) to MongoDB's Document Model",
+  "MongoDB Schema Design Patterns and Anti-patterns Skill Badge",
+];
+
+function ArrowIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16">
+      <path d="M3.5 12.5 12 4m-6.5 0H12v6.5" />
+    </svg>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main>
+      <header className="hero" aria-labelledby="page-title">
+        <nav className="topbar" aria-label="Primary navigation">
+          <a className="wordmark" href="#page-title" aria-label="Marlon Samot, home">
+            MS
+          </a>
+          <div className="nav-links">
+            <a href="#experience">Experience</a>
+            <a href="#credentials">Credentials</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
+
+        <div className="hero-grid">
+          <div>
+            <p className="eyebrow">Metro Manila, Philippines</p>
+            <h1 id="page-title">Marlon Samot</h1>
+            <p className="role">Senior Web Developer</p>
+          </div>
+          <div className="hero-summary">
+            <p>
+              I build modern web experiences with a practical approach to
+              frontend, backend, and data-focused engineering.
+            </p>
+            <a className="text-link" href="#contact">
+              Let&apos;s connect <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <div className="content">
+        <section className="section-grid" aria-labelledby="profile-heading">
+          <div className="section-label">
+            <span>01</span>
+            <h2 id="profile-heading">Profile</h2>
+          </div>
+          <div className="section-body lead-copy">
+            <p>
+              A Senior Web Developer focused on creating clear, reliable, and
+              maintainable web solutions. My work spans the layers of a modern
+              application—from interface implementation to data modeling.
+            </p>
+          </div>
+        </section>
+
+        <section className="section-grid" aria-labelledby="skills-heading">
+          <div className="section-label">
+            <span>02</span>
+            <h2 id="skills-heading">Capabilities</h2>
+          </div>
+          <ul className="skills-list section-body" aria-label="Professional capabilities">
+            {capabilities.map((capability) => (
+              <li key={capability}>{capability}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section
+          className="section-grid"
+          id="experience"
+          aria-labelledby="experience-heading"
+        >
+          <div className="section-label">
+            <span>03</span>
+            <h2 id="experience-heading">Experience</h2>
+          </div>
+          <article className="section-body experience-card">
+            <div>
+              <p className="item-kicker">Current organization</p>
+              <h3>GMA New Media, Inc.</h3>
+            </div>
+            <p className="item-role">Senior Web Developer</p>
+          </article>
+        </section>
+
+        <section
+          className="section-grid"
+          id="credentials"
+          aria-labelledby="credentials-heading"
+        >
+          <div className="section-label">
+            <span>04</span>
+            <h2 id="credentials-heading">Credentials</h2>
+          </div>
+          <div className="section-body credentials-grid">
+            <article>
+              <p className="item-kicker">Education</p>
+              <h3>Bestlink College of the Philippines</h3>
+              <p className="muted">2011–2014</p>
+            </article>
+            <article>
+              <p className="item-kicker">Recent certifications</p>
+              <ul className="certification-list">
+                {certifications.map((certification) => (
+                  <li key={certification}>{certification}</li>
+                ))}
+              </ul>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <footer id="contact" aria-labelledby="contact-heading">
+        <div className="footer-inner">
+          <p className="eyebrow">Open to conversation</p>
+          <h2 id="contact-heading">Connect with me.</h2>
+          <p className="footer-copy">
+            Explore my professional background or follow what I&apos;m building.
           </p>
+          <div className="contact-links">
+            <a
+              href="https://www.linkedin.com/in/marlon-samot/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Marlon Samot on LinkedIn (opens in a new tab)"
+            >
+              LinkedIn <ArrowIcon />
+            </a>
+            <a
+              href="https://github.com/msamot"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Marlon Samot on GitHub (opens in a new tab)"
+            >
+              GitHub <ArrowIcon />
+            </a>
+          </div>
+          <p className="copyright">© 2026 Marlon Samot</p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </footer>
+    </main>
   );
 }
